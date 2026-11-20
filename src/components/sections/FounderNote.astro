@@ -1,0 +1,67 @@
+---
+import { Image } from 'astro:assets';
+import paoloImg from '../../assets/paolo-pronzo.jpeg';
+---
+
+<section class="bg-cream py-20 lg:py-28 border-b border-stone-200/80">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      
+      <div class="lg:col-span-5">
+        <div class="relative group overflow-hidden bg-charcoal aspect-[4/5] shadow-xl">
+          <Image
+            src={paoloImg}
+            alt="Paolo Pronzo - Licensed Italian Real Estate Agent & Property Finder"
+            class="w-full h-full object-cover object-top opacity-95 group-hover:scale-105 transition-transform duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-charcoal/75 via-charcoal/10 to-transparent"></div>
+          
+          <div class="absolute bottom-6 left-6 right-6 text-white">
+            <p class="font-serif text-2xl font-semibold">Paolo Pronzo</p>
+            <p class="text-xs uppercase tracking-[0.2em] text-stone-300 mt-1">
+              Licensed Italian Real Estate Agent • REA n. MI-2626499
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 space-y-6">
+        <p class="text-xs uppercase tracking-[0.25em] font-semibold text-bronze">
+          Who We Are • Your Trusted Italian Real Estate Agent
+        </p>
+
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-charcoal leading-tight">
+          “Helping you fall in love with Italy – not just as a visitor, but as an owner.”
+        </h2>
+
+        <div class="space-y-4 text-base text-slate-muted leading-relaxed">
+          <p>
+            Led by <strong class="text-charcoal font-semibold">Paolo Pronzo</strong>, Italian licensed real estate agent (<strong class="text-charcoal font-semibold">REA n. MI-2626499</strong>), <strong class="text-charcoal font-semibold">Own Italy</strong> offers a refined and client-focused approach designed for international buyers seeking transparency, expertise, and an exceptional property finding and advisory service.
+          </p>
+          <p>
+            Purchasing a home in Italy is more than a transaction—it’s the beginning of a new chapter, a lifestyle choice. As your personal property finder and buyer representative, I work exclusively on your behalf, ensuring that your interests always come first.
+          </p>
+          <p>
+            Each step is transparent, each document explained, and each decision guided by your best interest—from the first conversation to the notary deed, with clarity and discretion.
+          </p>
+        </div>
+
+        <div class="pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-t border-stone-200">
+          <div>
+            <p class="font-serif italic text-2xl text-charcoal">Paolo Pronzo</p>
+            <p class="text-xs text-slate-muted">Founder & Buyer Representative • Based in Milano, Operating Across Italy</p>
+          </div>
+
+          <a
+            href="/about"
+            class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-charcoal hover:text-bronze transition-colors"
+          >
+            <span>Discover Our Mission</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

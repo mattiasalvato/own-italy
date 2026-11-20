@@ -1,0 +1,71 @@
+---
+import logo from '../../assets/logo-ownitaly.png';
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-charcoal text-stone-300 border-t border-stone-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+      
+      <div class="md:col-span-5 space-y-5">
+        <a href="/" class="inline-block">
+          <img
+            src={logo.src}
+            alt="OWN ITALY — Property Finder in Italy"
+            class="h-11 w-auto object-contain brightness-0 invert"
+          />
+        </a>
+        <p class="text-sm text-stone-400 leading-relaxed max-w-sm">
+          We don’t just help you buy a home in Italy—we help you feel at home in Italy. Based in Milano, operating across Italy.
+        </p>
+        <p class="text-xs text-stone-500">
+          Paolo Pronzo — Licensed Italian Real Estate Agent • REA n. MI-2626499
+        </p>
+        <div class="flex flex-wrap items-center gap-5 pt-2 text-xs uppercase tracking-widest font-semibold text-white">
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-bronze transition-colors">Instagram</a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" class="hover:text-bronze transition-colors">TikTok</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="hover:text-bronze transition-colors">LinkedIn</a>
+          <a href="https://wa.me/393401010943" target="_blank" rel="noopener" class="hover:text-bronze transition-colors">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="md:col-span-3 space-y-4">
+        <h4 class="text-xs uppercase tracking-widest font-semibold text-white">Navigation</h4>
+        <ul class="space-y-2.5 text-sm text-stone-400">
+          <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+          <li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
+          <li><a href="/service" class="hover:text-white transition-colors">Service</a></li>
+          <li><a href="/faq" class="hover:text-white transition-colors">All You Need to Know</a></li>
+          <li><a href="/blog" class="hover:text-white transition-colors">Own Italy Blog</a></li>
+          <li><a href="/contact" class="hover:text-white transition-colors">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-4 space-y-4">
+        <h4 class="text-xs uppercase tracking-widest font-semibold text-white">Get in Touch</h4>
+        <ul class="space-y-2 text-sm text-stone-400">
+          <li><a href="mailto:info@ownitaly.com" class="hover:text-white transition-colors">info@ownitaly.com</a></li>
+          <li><a href="tel:+393401010943" class="hover:text-white transition-colors">+39 340 101 0943</a></li>
+          <li class="text-stone-500 text-xs pt-1">@the_propertyjournal • Milano, Italy</li>
+        </ul>
+        <div class="pt-3">
+          <a
+            href="/contact"
+            class="inline-block bg-bronze text-white text-xs uppercase tracking-widest font-semibold px-6 py-3.5 hover:bg-bronze-dark transition-colors"
+          >
+            Schedule a Free Consultation
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-stone-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-stone-500">
+      <p>© {currentYear} OWN ITALY — REA n. MI-2626499. All rights reserved.</p>
+      <div class="flex space-x-6">
+        <a href="/privacy" class="hover:text-stone-300 transition-colors">Privacy Policy</a>
+        <a href="/terms" class="hover:text-stone-300 transition-colors">Terms & Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>

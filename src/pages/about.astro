@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import FounderNote from '../components/sections/FounderNote.astro';
+
+const pillars = [
+  {
+    num: "01",
+    title: "Independent Buyer Italian Real Estate Agent",
+    desc: "Unlike traditional agencies that only promote their own listings, we work exclusively on your behalf, the buyer. Our goal is to protect your interests and find the best property at the right price."
+  },
+  {
+    num: "02",
+    title: "Full Market Access",
+    desc: "We search across the entire Italian market: you’ll gain access to unique opportunities you would never find alone."
+  },
+  {
+    num: "03",
+    title: "Transparency and Protection",
+    desc: "Buying in another country can be complex. We provide clear guidance on every legal, fiscal, and procedural step, protecting you from hidden risks or unexpected costs, ensuring a safe and transparent purchase."
+  },
+  {
+    num: "04",
+    title: "English-Speaking Support",
+    desc: "From the first call to the notary deed, you’ll have a single point of contact who speaks English and keeps every stage of the process simple and clear."
+  },
+  {
+    num: "05",
+    title: "Beyond the Purchase",
+    desc: "Our support doesn’t stop at the sale. We assist you with setup utilities, renovations, interior design, and property management, so you can feel at home in Italy from day one."
+  }
+];
+---
+
+<BaseLayout
+  title="About Us | OWN ITALY — Italian Real Estate Agent & Property Finder"
+  description="Led by Paolo Pronzo (REA MI-2626499), Own Italy helps international buyers feel confident and supported when purchasing property in Italy."
+>
+  <PageHeader
+    eyebrow="Who We Are • Italian Real Estate Agent & Property Finder"
+    title="We don’t just help you buy a home in Italy, we help you feel at home in Italy."
+    subtitle="Our mission: helping you fall in love with Italy – not just as a visitor, but as an owner."
+    bgImage="https://images.unsplash.com/photo-1518098268026-4e89f1a2cd8e?auto=format&fit=crop&w=2000&q=85"
+  />
+
+  <FounderNote />
+
+  <!-- Property Advisor Narrative -->
+  <section class="bg-cream py-20 lg:py-28 border-b border-stone-200/80">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <p class="text-xs uppercase tracking-[0.25em] font-semibold text-bronze">
+        Property Advisor for International Clients in Italy
+      </p>
+      <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-charcoal leading-tight">
+        Integrity, discretion, and full market access
+      </h2>
+      <div class="space-y-4 text-base sm:text-lg text-slate-muted leading-relaxed">
+        <p>
+          At Own Italy we search across the entire Italian market to find the right property that truly matches your goal, taste, and budget. We combine professional negotiation skills with a deep understanding of Italy’s property laws and market dynamics.
+        </p>
+        <p>
+          We manage every aspect of your Italian property search, from identifying the right areas to evaluating properties, coordinating due diligence, and guiding you through negotiations. Our approach is personal and discreet: we represent only the buyer, ensuring complete transparency.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Strength Grid -->
+  <section class="bg-sand py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl space-y-3 mb-14">
+        <p class="text-xs uppercase tracking-[0.25em] font-semibold text-bronze">Our Strength</p>
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-charcoal">
+          Best Italian Real Estate Agent for Foreign Buyers
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {pillars.map((item) => (
+          <div class="bg-white p-8 border border-stone-200 space-y-3">
+            <span class="font-serif text-3xl text-bronze font-semibold">{item.num}</span>
+            <h3 class="font-serif text-2xl font-semibold text-charcoal">{item.title}</h3>
+            <p class="text-sm text-slate-muted leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

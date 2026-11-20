@@ -1,0 +1,271 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+---
+
+<BaseLayout
+  title="Contact Us | OWN ITALY — Book a Consultation"
+  description="Get in touch with OWN ITALY. Schedule your free consultation now. Based in Milano - Operating across Italy."
+>
+  <PageHeader
+    eyebrow="Get in touch, we are here for you"
+    title="Contact Us and Start Your Journey to Owning a Home in Italy"
+    subtitle="Whether you are beginning your Italian property search or you already have a specific home in mind, we are here to guide you through every step. Let’s turn your Italian dream into reality."
+    bgImage="https://images.unsplash.com/photo-1543429776-2782fc8e1acd?auto=format&fit=crop&w=2000&q=85"
+  />
+
+  <section class="bg-cream py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left: Direct Contact Details -->
+        <div class="lg:col-span-4 space-y-8 bg-white p-8 border border-stone-200">
+          <div class="space-y-2">
+            <p class="text-xs uppercase tracking-[0.2em] font-semibold text-bronze">Book a Consultation</p>
+            <h2 class="font-serif text-3xl font-semibold text-charcoal">Ready to take the first step?</h2>
+            <p class="text-sm text-slate-muted leading-relaxed">
+              Schedule your free consultation now via our form or reach out directly.
+            </p>
+          </div>
+
+          <div class="space-y-4 pt-4 border-t border-stone-100 text-sm">
+            <div>
+              <p class="text-[11px] uppercase tracking-widest text-slate-muted font-semibold">Email</p>
+              <a href="mailto:info@ownitaly.com" class="text-charcoal font-medium hover:text-bronze transition-colors">
+                info@ownitaly.com
+              </a>
+            </div>
+
+            <div>
+              <p class="text-[11px] uppercase tracking-widest text-slate-muted font-semibold">Phone & WhatsApp</p>
+              <a href="https://wa.me/393401010943" target="_blank" rel="noopener" class="text-charcoal font-medium hover:text-bronze transition-colors">
+                +39 340 101 0943
+              </a>
+            </div>
+
+            <div>
+              <p class="text-[11px] uppercase tracking-widest text-slate-muted font-semibold">Social & Journal</p>
+              <p class="text-charcoal font-medium">@the_propertyjournal</p>
+            </div>
+
+            <div>
+              <p class="text-[11px] uppercase tracking-widest text-slate-muted font-semibold">Location</p>
+              <p class="text-charcoal font-medium">Based in Milano — Operating across Italy</p>
+              <p class="text-xs text-slate-muted mt-0.5">REA n. MI-2626499</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Multi-Step Qualification Form -->
+        <div class="lg:col-span-8">
+          <div
+            x-data="{
+              step: 1,
+              submitted: false,
+              form: {
+                goal: '',
+                propertyType: '',
+                budget: '',
+                timeline: '',
+                region: '',
+                firstName: '',
+                lastName: '',
+                email: '',
+                phone: '',
+                notes: ''
+              }
+            }"
+            class="bg-white border border-stone-200 p-8 sm:p-12 shadow-xs"
+          >
+            <div x-show="!submitted" class="mb-10">
+              <div class="flex justify-between text-xs uppercase tracking-widest font-semibold text-slate-muted mb-3">
+                <span>Step <span x-text="step"></span> of 3</span>
+                <span x-text="step === 1 ? 'Property & Goal' : step === 2 ? 'Region & Budget' : 'Your Details'"></span>
+              </div>
+              <div class="w-full h-1 bg-stone-200">
+                <div class="h-1 bg-bronze transition-all duration-300" :style="`width: ${(step / 3) * 100}%`"></div>
+              </div>
+            </div>
+
+            <form @submit.prevent="submitted = true" x-show="!submitted">
+              <div x-show="step === 1" class="space-y-8">
+                <div class="space-y-3">
+                  <label class="block font-serif text-2xl font-semibold text-charcoal">
+                    What is the main goal of your purchase?
+                  </label>
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    {['Vacation Home', 'Permanent Residence', 'Investment Property'].map((item) => (
+                      <button
+                        type="button"
+                        @click={`form.goal = '${item}'`}
+                        :class={`form.goal === '${item}' ? 'bg-charcoal text-white border-charcoal' : 'bg-cream text-charcoal border-stone-300 hover:border-bronze'`}
+                        class="p-4 border text-sm font-medium text-left transition-colors cursor-pointer"
+                      >
+                        {item}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="space-y-3">
+                  <label class="block font-serif text-2xl font-semibold text-charcoal">
+                    What type of property are you looking for?
+                  </label>
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    {['Countryside Villa', 'Seaside Escape', 'City Apartment'].map((type) => (
+                      <button
+                        type="button"
+                        @click={`form.propertyType = '${type}'`}
+                        :class={`form.propertyType === '${type}' ? 'bg-charcoal text-white border-charcoal' : 'bg-cream text-charcoal border-stone-300 hover:border-bronze'`}
+                        class="p-4 border text-sm font-medium text-left transition-colors cursor-pointer"
+                      >
+                        {type}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="pt-4 flex justify-end">
+                  <button
+                    type="button"
+                    @click="step = 2"
+                    class="bg-charcoal text-white text-xs uppercase tracking-widest font-semibold px-8 py-4 hover:bg-bronze transition-colors cursor-pointer"
+                  >
+                    Continue →
+                  </button>
+                </div>
+              </div>
+
+              <div x-show="step === 2" x-cloak class="space-y-8">
+                <div class="space-y-3">
+                  <label class="block font-serif text-2xl font-semibold text-charcoal">Target budget</label>
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    {['Under €500k', '€500k – €1M', '€1M – €2.5M', '€2.5M+'].map((b) => (
+                      <button
+                        type="button"
+                        @click={`form.budget = '${b}'`}
+                        :class={`form.budget === '${b}' ? 'bg-charcoal text-white border-charcoal' : 'bg-cream text-charcoal border-stone-300 hover:border-bronze'`}
+                        class="p-4 border text-sm font-medium text-center transition-colors cursor-pointer"
+                      >
+                        {b}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="space-y-3">
+                  <label for="region" class="block font-serif text-2xl font-semibold text-charcoal">
+                    Preferred region or area in Italy
+                  </label>
+                  <input
+                    id="region"
+                    type="text"
+                    x-model="form.region"
+                    placeholder="e.g., Tuscany, Lake Como, Puglia, Milan, Rome..."
+                    class="w-full border border-stone-300 bg-cream px-4 py-3.5 text-sm focus:outline-none focus:border-bronze"
+                  />
+                </div>
+
+                <div class="space-y-3">
+                  <label class="block font-serif text-2xl font-semibold text-charcoal">Your timeline</label>
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    {['Now', 'Within 6 months', 'Just researching'].map((t) => (
+                      <button
+                        type="button"
+                        @click={`form.timeline = '${t}'`}
+                        :class={`form.timeline === '${t}' ? 'bg-charcoal text-white border-charcoal' : 'bg-cream text-charcoal border-stone-300 hover:border-bronze'`}
+                        class="p-4 border text-sm font-medium text-center transition-colors cursor-pointer"
+                      >
+                        {t}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="pt-4 flex justify-between">
+                  <button
+                    type="button"
+                    @click="step = 1"
+                    class="text-xs uppercase tracking-widest font-semibold text-slate-muted hover:text-charcoal cursor-pointer"
+                  >
+                    ← Back
+                  </button>
+                  <button
+                    type="button"
+                    @click="step = 3"
+                    class="bg-charcoal text-white text-xs uppercase tracking-widest font-semibold px-8 py-4 hover:bg-bronze transition-colors cursor-pointer"
+                  >
+                    Continue →
+                  </button>
+                </div>
+              </div>
+
+              <div x-show="step === 3" x-cloak class="space-y-6">
+                <h2 class="font-serif text-2xl font-semibold text-charcoal">Where can we reach you?</h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs uppercase tracking-wider font-semibold text-charcoal mb-1.5">First Name *</label>
+                    <input type="text" required x-model="form.firstName" class="w-full border border-stone-300 bg-cream px-4 py-3 text-sm focus:outline-none focus:border-bronze" />
+                  </div>
+                  <div>
+                    <label class="block text-xs uppercase tracking-wider font-semibold text-charcoal mb-1.5">Last Name *</label>
+                    <input type="text" required x-model="form.lastName" class="w-full border border-stone-300 bg-cream px-4 py-3 text-sm focus:outline-none focus:border-bronze" />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs uppercase tracking-wider font-semibold text-charcoal mb-1.5">Email *</label>
+                    <input type="email" required x-model="form.email" class="w-full border border-stone-300 bg-cream px-4 py-3 text-sm focus:outline-none focus:border-bronze" />
+                  </div>
+                  <div>
+                    <label class="block text-xs uppercase tracking-wider font-semibold text-charcoal mb-1.5">Phone / WhatsApp *</label>
+                    <input type="tel" required x-model="form.phone" class="w-full border border-stone-300 bg-cream px-4 py-3 text-sm focus:outline-none focus:border-bronze" />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs uppercase tracking-wider font-semibold text-charcoal mb-1.5">Additional notes (optional)</label>
+                  <textarea rows="3" x-model="form.notes" placeholder="Tell us more about your dream property..." class="w-full border border-stone-300 bg-cream px-4 py-3 text-sm focus:outline-none focus:border-bronze"></textarea>
+                </div>
+
+                <div class="pt-4 flex justify-between items-center">
+                  <button
+                    type="button"
+                    @click="step = 2"
+                    class="text-xs uppercase tracking-widest font-semibold text-slate-muted hover:text-charcoal cursor-pointer"
+                  >
+                    ← Back
+                  </button>
+                  <button
+                    type="submit"
+                    class="bg-bronze text-white text-xs uppercase tracking-widest font-semibold px-8 py-4 hover:bg-bronze-dark transition-colors cursor-pointer"
+                  >
+                    Schedule Free Consultation
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <div x-show="submitted" x-cloak class="text-center py-10 space-y-4">
+              <p class="text-xs uppercase tracking-[0.25em] font-semibold text-bronze">Request Received</p>
+              <h3 class="font-serif text-3xl font-semibold text-charcoal">
+                Thank you <span x-text="form.firstName"></span>, we've received your inquiry.
+              </h3>
+              <p class="text-sm text-slate-muted max-w-md mx-auto leading-relaxed">
+                Paolo and the OWN ITALY team will review your criteria and get back to you within 24 hours to schedule your free consultation.
+              </p>
+              <div class="pt-4">
+                <a href="/" class="inline-block bg-charcoal text-white text-xs uppercase tracking-widest font-semibold px-6 py-3.5">
+                  Back to Home
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

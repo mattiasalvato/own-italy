@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+
+const faqs = [
+  {
+    num: "01",
+    question: "How long does it take to buy a property in Italy?",
+    answer: "On average, the process takes 1 to 6 months from the offer to the final deed. Timing can vary based on due diligence, paperwork, and whether you’re buying remotely. However, it can vary also depending on the seller’s situation—for example, if they need time to vacate the property or if there’s a current rental contract that must expire."
+  },
+  {
+    num: "02",
+    question: "Can I buy property in Italy if I’m not an EU citizen?",
+    answer: "Yes. Most non-EU citizens can purchase property in Italy, either through reciprocity agreements or by establishing certain legal conditions. We’ll guide you based on your country of residence."
+  },
+  {
+    num: "03",
+    question: "Do I need an Italian bank account?",
+    answer: "An Italian bank account is useful, but not strictly necessary, for a foreigner who wants to buy a house in Italy. If you don’t have one, we help you open one remotely or in person to complete the purchase and manage ongoing expenses like utilities and taxes. Alternatively, you can use a trust mandate with the notary to transfer the funds."
+  },
+  {
+    num: "04",
+    question: "Can I buy remotely without traveling to Italy?",
+    answer: "Absolutely. Many of our clients complete the process from abroad with our help. We offer virtual tours, digital document handling, and power of attorney services."
+  },
+  {
+    num: "05",
+    question: "Can you assist after the purchase as well?",
+    answer: "Absolutely—we support you with utilities setup, renovation planning, interior design contacts, and local service providers. Our goal is not only to help you buy a property, but to help you feel at home in Italy."
+  },
+  {
+    num: "06",
+    question: "Do I need a visa or residency to own property in Italy?",
+    answer: "No, you do not need a visa or residency to buy property in Italy. Foreigners—regardless of nationality—can legally purchase real estate, even as non-residents. However, if you plan to live in Italy long-term, you may need to apply for a visa or residence permit, depending on your nationality and the purpose of your stay (e.g. retirement, remote work, investment). We can connect you with immigration experts if needed."
+  }
+];
+---
+
+<BaseLayout
+  title="All You Need to Know | OWN ITALY — Frequently Asked Questions"
+  description="Answers to the most common questions about buying property in Italy as a foreign buyer: timelines, non-EU rules, remote buying, and post-purchase support."
+>
+  <PageHeader
+    eyebrow="All You Need to Know"
+    title="Frequently Asked Questions"
+    subtitle="Everything international buyers need to know before starting their property search in Italy."
+    bgImage="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=2000&q=85"
+  />
+
+  <section class="bg-cream py-20 lg:py-28 border-b border-stone-200/80" x-data="{ openFaq: 0 }">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="divide-y divide-stone-200 border-y border-stone-200">
+        {faqs.map((faq, idx) => (
+          <div class="py-7">
+            <button
+              type="button"
+              @click={`openFaq = (openFaq === ${idx} ? null : ${idx})`}
+              class="w-full flex items-start justify-between text-left gap-6 cursor-pointer group"
+            >
+              <div class="flex items-baseline gap-5">
+                <span class="font-serif text-lg font-semibold text-bronze shrink-0">{faq.num}</span>
+                <span class="font-serif text-2xl sm:text-3xl font-semibold text-charcoal group-hover:text-bronze transition-colors">
+                  {faq.question}
+                </span>
+              </div>
+              <span
+                :class={`openFaq === ${idx} ? 'rotate-45 text-bronze' : 'text-charcoal'`}
+                class="text-2xl font-light transition-transform duration-200 shrink-0 mt-1"
+              >
+                +
+              </span>
+            </button>
+
+            <div
+              x-show={`openFaq === ${idx}`}
+              class="mt-4 pl-10 pr-6 text-base sm:text-lg text-slate-muted leading-relaxed"
+            >
+              {faq.answer}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-forest text-white py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <p class="text-xs uppercase tracking-[0.25em] font-semibold text-bronze">Let's Start</p>
+      <h2 class="font-serif text-3xl sm:text-4xl font-semibold">Have more questions about buying in Italy?</h2>
+      <div class="pt-2">
+        <a
+          href="/contact"
+          class="inline-block bg-bronze text-white text-xs uppercase tracking-widest font-semibold px-8 py-4 hover:bg-bronze-dark transition-colors"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

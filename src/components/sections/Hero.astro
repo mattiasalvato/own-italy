@@ -1,0 +1,76 @@
+---
+interface Props {
+  heroImage?: string;
+}
+
+const {
+  heroImage = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=90"
+} = Astro.props;
+---
+
+<section class="relative min-h-[92vh] flex items-center bg-charcoal text-white overflow-hidden">
+  <!-- Background Image: Villa immobiliare italiana -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src={heroImage}
+      alt="Luxury Italian stone villa with private pool and countryside view"
+      class="w-full h-full object-cover object-center"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-[#141414]/90 via-[#141414]/65 to-[#141414]/25"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#141414]/55 via-transparent to-[#141414]/60"></div>
+  </div>
+
+  <!-- Contenuto Editoriale (pt-24 per compensare l'header fixed trasparente) -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-32 pb-24 lg:pt-40 lg:pb-32">
+    <div class="max-w-3xl space-y-8">
+      
+      <div class="flex items-center gap-4">
+        <span class="w-10 h-[1px] bg-bronze"></span>
+        <p class="text-xs uppercase tracking-[0.28em] font-semibold text-bronze">
+          Italian Real Estate Agent & Property Finder
+        </p>
+      </div>
+
+      <h1 class="font-serif text-5xl sm:text-6xl lg:text-[4.5rem] font-medium text-white leading-[1.06] tracking-tight">
+        We don’t just help you buy a home in Italy, <span class="italic font-normal text-[#DFC4A6]">we help you feel at home in Italy.</span>
+      </h1>
+
+      <p class="text-base sm:text-xl text-stone-200/90 font-light leading-relaxed max-w-2xl">
+        Own Italy helps international buyers feel confident and supported as they purchase property in Italy—from property selection and legal due diligence to the final notary deed and beyond.
+      </p>
+
+      <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-5">
+        <a
+          href="/contact"
+          class="group inline-flex justify-center items-center gap-3 bg-white text-charcoal text-xs uppercase tracking-[0.2em] font-semibold px-9 py-4.5 hover:bg-bronze hover:text-white transition-all duration-300"
+        >
+          <span>Book a Free Consultation</span>
+          <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </a>
+
+        <a
+          href="/service"
+          class="inline-flex justify-center items-center border border-white/40 backdrop-blur-xs text-white text-xs uppercase tracking-[0.2em] font-semibold px-9 py-4.5 hover:border-white hover:bg-white/10 transition-all duration-300"
+        >
+          Explore Our Services
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="absolute bottom-0 inset-x-0 z-10 border-t border-white/15 bg-charcoal/40 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap items-center justify-between gap-4 text-[11px] uppercase tracking-[0.2em] text-stone-300">
+      <div class="flex items-center gap-6">
+        <span>Licensed Italian Agent • REA MI-2626499</span>
+        <span class="hidden sm:inline text-white/30">•</span>
+        <span class="hidden sm:inline">100% Buyer-Only Representation</span>
+      </div>
+      <a href="#next-section" class="hidden md:inline-flex items-center gap-2 text-white/80 hover:text-bronze transition-colors">
+        <span>Scroll to explore</span>
+        <span>↓</span>
+      </a>
+    </div>
+  </div>
+</section>

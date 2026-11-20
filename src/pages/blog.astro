@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+
+const posts = [
+  {
+    category: "Buying Guide",
+    date: "September 2026",
+    title: "Why International Buyers Need an Independent Property Finder in Italy",
+    excerpt: "The key differences between a traditional Italian real estate agency and a dedicated buyer's agent working solely in your interest.",
+    image: "https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    category: "Due Diligence & Legal",
+    date: "August 2026",
+    title: "Essential Checks Before Signing a Preliminary Purchase Offer in Italy",
+    excerpt: "Cadastral compliance, building permits, and title checks: everything that must be verified before committing a deposit.",
+    image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    category: "Lifestyle & Investment",
+    date: "July 2026",
+    title: "Countryside Villas, Seaside Escapes, or City Apartments: How to Choose",
+    excerpt: "How to evaluate maintenance costs, rental potential, and lifestyle across Italy's most sought-after regions.",
+    image: "https://images.unsplash.com/photo-1536697246787-1f7ae568d89a?auto=format&fit=crop&w=900&q=85"
+  }
+];
+---
+
+<BaseLayout
+  title="Own Italy Blog | Insights & Guides for Buying Property in Italy"
+  description="Articles, practical advice, and real estate guides by OWN ITALY for international buyers."
+>
+  <PageHeader
+    eyebrow="Own Italy Blog"
+    title="Insights, guides, and advice on buying property in Italy"
+    bgImage="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=2000&q=85"
+  />
+
+  <section class="bg-cream py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {posts.map((post) => (
+          <article class="bg-white border border-stone-200 overflow-hidden flex flex-col justify-between group">
+            <div>
+              <div class="aspect-[16/10] overflow-hidden bg-sand">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div class="p-7 space-y-3">
+                <div class="flex items-center justify-between text-xs text-bronze font-semibold uppercase tracking-wider">
+                  <span>{post.category}</span>
+                  <span class="text-slate-muted font-normal">{post.date}</span>
+                </div>
+                <h2 class="font-serif text-2xl font-semibold text-charcoal leading-snug group-hover:text-bronze transition-colors">
+                  {post.title}
+                </h2>
+                <p class="text-sm text-slate-muted leading-relaxed">
+                  {post.excerpt}
+                </p>
+              </div>
+            </div>
+            <div class="px-7 py-4 border-t border-stone-100">
+              <a href="/contact" class="text-xs uppercase tracking-widest font-semibold text-charcoal hover:text-bronze">
+                Book a consultation →
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

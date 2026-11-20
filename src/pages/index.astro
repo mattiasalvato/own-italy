@@ -1,16 +1,154 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import MetricsBar from '../components/sections/MetricsBar.astro';
+import FounderNote from '../components/sections/FounderNote.astro';
+
+const strengths = [
+  {
+    title: "Independent Buyer Italian Real Estate Agent",
+    desc: "Unlike traditional agencies that only promote their own listings, we work exclusively on your behalf, the buyer. Our goal is to protect your interests and find the best property at the right price."
+  },
+  {
+    title: "Full Market Access",
+    desc: "We search across the entire Italian market: you’ll gain access to unique opportunities you would never find alone."
+  },
+  {
+    title: "Transparency and Protection",
+    desc: "Buying in another country can be complex. We provide clear guidance on every legal, fiscal, and procedural step, protecting you from hidden risks or unexpected costs, ensuring a safe and transparent purchase."
+  },
+  {
+    title: "English-Speaking Support",
+    desc: "From the first call to the notary deed, you’ll have a single point of contact who speaks English and keeps every stage of the process simple and clear."
+  },
+  {
+    title: "Beyond the Purchase",
+    desc: "Our support doesn’t stop at the sale. We assist you with utility setup, renovations, interior design, and property management, so you can feel at home in Italy from day one."
+  }
+];
+
+const testimonials = [
+  {
+    quote: "Working with Own Italy was the best decision we made when starting our Italian property search. As our trusted Italian real estate agent, Paolo understood exactly what we were looking for and guided us through every step with professionalism and honesty. From property selection to the final signing, everything was handled flawlessly.",
+    author: "James and Rebecca, UK"
+  },
+  {
+    quote: "As foreigners, buying in Italy felt daunting at first. But Paolo’s experience as our expert and exclusive Italian real estate agent gave us full confidence from day one. He offered full market access and showed us properties we would never have found alone. His Italian property search service is truly exceptional, 5 stars!",
+    author: "Mark and Olivia, USA"
+  }
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="OWN ITALY | Italian Real Estate Agent & Property Finder"
+  description="Own Italy helps international buyers feel confident and supported as they purchase property in Italy. Led by Paolo Pronzo (REA MI-2626499)."
+>
+  <Hero />
+  <MetricsBar />
+  <FounderNote />
+
+  <!-- Our Strength & Property Advisor -->
+  <section class="bg-cream py-20 lg:py-28 border-b border-stone-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-5 space-y-5 lg:sticky lg:top-32">
+          <p class="text-xs uppercase tracking-[0.25em] font-semibold text-bronze">
+            Our Strength
+          </p>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-charcoal leading-tight">
+            Best Italian Real Estate Agent for Foreign Buyers
+          </h2>
+          <p class="text-base text-slate-muted leading-relaxed">
+            We offer a refined and fully independent service designed for international buyers who want to find the right home in Italy with confidence and clarity. We transform a complex process into an enjoyable and seamless experience, helping you purchase not just a property, but the right home and lifestyle in Italy.
+          </p>
+          <div class="pt-2">
+            <a
+              href="/service"
+              class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-charcoal border-b border-charcoal pb-1.5 hover:text-bronze hover:border-bronze transition-colors"
+            >
+              <span>Explore Our Full Service</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 space-y-6">
+          {strengths.map((item, idx) => (
+            <div class="bg-white p-7 sm:p-8 border border-stone-200/90 flex gap-6 items-start">
+              <span class="font-serif text-2xl font-semibold text-bronze shrink-0">
+                0{idx + 1}
+              </span>
+              <div class="space-y-2">
+                <h3 class="font-serif text-2xl font-semibold text-charcoal">
+                  {item.title}
+                </h3>
+                <p class="text-sm sm:text-base text-slate-muted leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="bg-sand py-20 lg:py-28 border-b border-stone-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl space-y-3 mb-14">
+        <p class="text-xs uppercase tracking-[0.25em] font-semibold text-bronze">
+          Testimonials
+        </p>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-charcoal">
+          What Our Clients Say
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {testimonials.map((t) => (
+          <div class="bg-white p-8 sm:p-10 border border-stone-200 flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <div class="text-bronze text-sm tracking-widest">★★★★★</div>
+              <p class="font-serif italic text-xl sm:text-2xl text-charcoal leading-relaxed">
+                “{t.quote}”
+              </p>
+            </div>
+            <div class="pt-4 border-t border-stone-100">
+              <p class="font-semibold text-sm text-charcoal">{t.author}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="bg-forest text-white py-20 lg:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <p class="text-xs uppercase tracking-[0.25em] font-semibold text-bronze">
+        Our Mission
+      </p>
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight">
+        Helping you fall in love with Italy – not just as a visitor, but as an owner
+      </h2>
+      <p class="text-base text-stone-300 max-w-2xl mx-auto leading-relaxed">
+        Schedule your free consultation now and start your Italian property search with complete clarity and discretion.
+      </p>
+      <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+        <a
+          href="/contact"
+          class="bg-bronze text-white text-xs uppercase tracking-widest font-semibold px-8 py-4 hover:bg-bronze-dark transition-colors"
+        >
+          Contact Us
+        </a>
+        <a
+          href="/faq"
+          class="border border-white/30 text-white text-xs uppercase tracking-widest font-semibold px-8 py-4 hover:bg-white hover:text-charcoal transition-colors"
+        >
+          All You Need to Know
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

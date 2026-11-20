@@ -1,0 +1,44 @@
+---
+const metrics = [
+  {
+    value: "100%",
+    label: "Buyer-Only Representation",
+    detail: "We never represent sellers—our loyalty is exclusively to you."
+  },
+  {
+    value: "360°",
+    label: "End-to-End Support",
+    detail: "From initial property research to the final Notary deed and beyond."
+  },
+  {
+    value: "Network",
+    label: "Trusted Local Access",
+    detail: "Sourcing across vetted networks and private owners across Italy."
+  },
+  {
+    value: "Zero",
+    label: "Bureaucratic Surprises",
+    detail: "Full legal, cadastral, and technical verification before you commit."
+  }
+];
+---
+
+<section class="bg-sand border-b border-stone-200/80">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+      {metrics.map((item) => (
+        <div class="border-l-2 border-bronze pl-5 space-y-1.5">
+          <p class="font-serif text-4xl lg:text-5xl font-semibold text-charcoal tracking-tight">
+            {item.value}
+          </p>
+          <p class="text-sm font-semibold uppercase tracking-wider text-charcoal">
+            {item.label}
+          </p>
+          <p class="text-xs text-slate-muted leading-relaxed">
+            {item.detail}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

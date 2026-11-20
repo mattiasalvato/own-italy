@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+
+const whyChoose = [
+  {
+    title: "End-to-End Support",
+    desc: "From property scouting and negotiations to legal checks and translation – we manage it all. No surprises, no confusion."
+  },
+  {
+    title: "Tailored Property Search",
+    desc: "Tell us what you are looking for, and we’ll curate a selection of properties that match your lifestyle, investment goals, and budget."
+  },
+  {
+    title: "In-Person Tours or Live Video Calls",
+    desc: "In-person property tours with our support or interactive video calls to explore the properties together from anywhere in the world."
+  },
+  {
+    title: "Legal & Contractual Support",
+    desc: "From legal assistance to tax consulting, we’ll guide you through every step. We translate all necessary documents and pair you with legal experts to ensure a safe transaction."
+  },
+  {
+    title: "Transparent & Trustworthy",
+    desc: "We work only for you, so you can get unbiased advice and the best deal possible."
+  },
+  {
+    title: "Local Expertise, Global Perspective",
+    desc: "We combine deep local knowledge with an international mindset. We understand both Italian real estate – and your expectations."
+  },
+  {
+    title: "Transaction Completion Support",
+    desc: "We help you complete payments and paperwork safely from the comfort of your home."
+  }
+];
+
+const steps = [
+  {
+    num: "01",
+    title: "Understanding your Vision",
+    desc: "We start with a detailed consultation to understand your lifestyle, budget, preferred location, and type of property. This helps us identify what “home in Italy” means for you – whether it’s an investment, a holiday home, or a permanent move."
+  },
+  {
+    num: "02",
+    title: "Tailored Property Search in the Entire Market",
+    desc: "Unlike local agencies that only show their own listings, we search across the whole market to find your home in Italy. You receive a curated, personalized selection of properties that truly matches your preferences and budget."
+  },
+  {
+    num: "03",
+    title: "Negotiation and Offer Support",
+    desc: "Once we find your home in Italy, we guide you through every negotiation and offer stage. Our goal is to ensure you get the best terms and full clarity before committing – helping you buy safely and smartly."
+  },
+  {
+    num: "04",
+    title: "Legal & Financial Guidance",
+    desc: "Buying abroad can feel complex, but we simplify every step. We work with trusted professionals to make sure all documents, payments, and formalities are handled properly – protecting your interests from preliminary contract to final signing."
+  },
+  {
+    num: "05",
+    title: "After Purchase Assistance",
+    desc: "Our service doesn’t end when you buy. We help with Italian bank accounts, utilities, renovations, interior design, and even rental or property management – so you can feel at home in Italy from day one."
+  }
+];
+---
+
+<BaseLayout
+  title="Service | OWN ITALY — Expert Advisory for International Buyers"
+  description="Turn your dream of owning a home in Italy into reality with OWN ITALY's tailored property search and end-to-end buyer advisory."
+>
+  <PageHeader
+    eyebrow="Expert Advisory for International Buyers"
+    title="Turn Your Dream of Owning a Home in Italy into Reality"
+    subtitle="Buying a property in Italy can seem like a complex process, especially if you live abroad. The language barrier, Italian property laws, and unfamiliar procedures are common concerns. We’re here to make everything simple and secure."
+    bgImage="https://images.unsplash.com/photo-1536697246787-1f7ae568d89a?auto=format&fit=crop&w=2000&q=85"
+  />
+
+  <!-- How We Find Your Home in Italy (Interactive 5-Step Tabs) -->
+  <section class="bg-cream py-20 lg:py-28 border-b border-stone-200/80" x-data="{ activeStep: 0 }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl space-y-3 mb-12">
+        <p class="text-xs uppercase tracking-[0.25em] font-semibold text-bronze">
+          Our Tailored Property Search Service
+        </p>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-charcoal">
+          How We Find Your Home in Italy
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 border border-stone-200 bg-white">
+        {steps.map((step, idx) => (
+          <button
+            type="button"
+            @click={`activeStep = ${idx}`}
+            :class={`activeStep === ${idx} ? 'bg-charcoal text-white' : 'bg-white text-charcoal hover:bg-sand/60'`}
+            class="text-left p-6 border-b md:border-b-0 md:border-r last:border-r-0 border-stone-200 transition-colors flex flex-col justify-between min-h-[140px] cursor-pointer"
+          >
+            <span
+              :class={`activeStep === ${idx} ? 'text-bronze' : 'text-slate-muted'`}
+              class="font-serif text-2xl font-semibold"
+            >
+              {step.num}
+            </span>
+            <p class="font-serif text-xl font-semibold leading-snug mt-4">{step.title}</p>
+          </button>
+        ))}
+      </div>
+
+      <div class="bg-white border-x border-b border-stone-200 p-8 sm:p-12">
+        {steps.map((step, idx) => (
+          <div x-show={`activeStep === ${idx}`} class="max-w-3xl space-y-4">
+            <p class="text-xs uppercase tracking-[0.2em] font-semibold text-bronze">Step {step.num}</p>
+            <h3 class="font-serif text-3xl font-semibold text-charcoal">{step.title}</h3>
+            <p class="text-base sm:text-lg text-slate-muted leading-relaxed">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose OWN ITALY -->
+  <section class="bg-sand py-20 lg:py-28 border-b border-stone-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl space-y-3 mb-14">
+        <p class="text-xs uppercase tracking-[0.25em] font-semibold text-bronze">
+          Full-Service Representation
+        </p>
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-charcoal">
+          Why Choose OWN ITALY
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {whyChoose.map((item) => (
+          <div class="bg-white p-8 border border-stone-200 space-y-3">
+            <h3 class="font-serif text-2xl font-semibold text-charcoal">{item.title}</h3>
+            <p class="text-sm text-slate-muted leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Ongoing & Beyond the Purchase -->
+  <section class="bg-cream py-20 lg:py-28 border-b border-stone-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div class="bg-white p-8 sm:p-10 border border-stone-200 space-y-4">
+        <p class="text-xs uppercase tracking-[0.2em] font-semibold text-bronze">Seamless Setup</p>
+        <h3 class="font-serif text-3xl font-semibold text-charcoal">Ongoing Support for Purchase</h3>
+        <p class="text-base text-slate-muted leading-relaxed">
+          We assist you in opening an Italian bank account, setting up utility services (including transferring contracts for electricity, gas, and water), and obtaining insurance. If needed, we can also help you find trusted property managers or tenants – whether for long-term living or short-term rentals.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 sm:p-10 border border-stone-200 space-y-4">
+        <p class="text-xs uppercase tracking-[0.2em] font-semibold text-bronze">Renovation & Design</p>
+        <h3 class="font-serif text-3xl font-semibold text-charcoal">Beyond the Purchase</h3>
+        <p class="text-base text-slate-muted leading-relaxed">
+          If your new home requires renovation, we can connect you with trusted local contractors, oversee estimates and quotes for the work, and accompany you through the renovation process. We also collaborate with skilled interior designers to help you furnish and style your Italian home.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ultimate Guide CTA -->
+  <section class="bg-forest text-white py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <p class="text-xs uppercase tracking-[0.25em] font-semibold text-bronze">
+        Free Resource & Consultation
+      </p>
+      <h2 class="font-serif text-3xl sm:text-4xl font-semibold">
+        The Ultimate Guide to Find a Home in Italy with a Tailored Property Search
+      </h2>
+      <p class="text-stone-300 max-w-xl mx-auto text-base leading-relaxed">
+        Looking for something specific? We also offer customized services based on your needs—just ask.
+      </p>
+      <div class="pt-3 flex flex-col sm:flex-row justify-center gap-4">
+        <a
+          href="/contact"
+          class="bg-bronze text-white text-xs uppercase tracking-widest font-semibold px-8 py-4 hover:bg-bronze-dark transition-colors"
+        >
+          Request the Guide & Book Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

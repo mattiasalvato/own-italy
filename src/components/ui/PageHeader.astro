@@ -1,0 +1,49 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  subtitle?: string;
+  bgImage?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  subtitle,
+  bgImage = "https://images.unsplash.com/photo-1518098268026-4e89f1a2cd8e?auto=format&fit=crop&w=2000&q=85"
+} = Astro.props;
+---
+
+<section class="relative bg-charcoal text-white pt-36 pb-20 lg:pt-44 lg:pb-28 overflow-hidden border-b border-stone-800">
+  <!-- Background Image dell'Italia -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src={bgImage}
+      alt="Italian architecture and landscape"
+      class="w-full h-full object-cover object-center"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-[#141414]/90 via-[#141414]/75 to-[#141414]/45"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#141414]/60 via-transparent to-[#141414]/50"></div>
+  </div>
+
+  <!-- Contenuto -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl space-y-5">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-[1px] bg-bronze"></span>
+        <p class="text-xs uppercase tracking-[0.25em] font-semibold text-bronze">
+          {eyebrow}
+        </p>
+      </div>
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium text-white leading-tight">
+        {title}
+      </h1>
+      {subtitle && (
+        <p class="text-base sm:text-lg text-stone-200/90 font-light leading-relaxed">
+          {subtitle}
+        </p>
+      )}
+    </div>
+  </div>
+</section>
